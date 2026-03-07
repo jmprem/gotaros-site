@@ -1,0 +1,11 @@
+{
+  "name": "gotaros-site",
+  "version": "1.0.0",
+  "description": "TAROS — AI Safety Platform for the Enterprise. Public website.",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "preview": "npm run dev",
+    "build": "echo \"Static site — no build step. Deploy as-is to GitHub Pages.\""
+  }
+}
