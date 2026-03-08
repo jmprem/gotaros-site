@@ -39,6 +39,33 @@
       </div>
     </section>
 
+    <!--
+      TAROS intro animation: embedded via iframe.
+      The animation is a self-contained HTML file (animations/taros_introduction.html) with
+      its own CSS, scene markup (with embedded assets), and Web Speech API voice-over.
+      Using an iframe keeps the main page small and avoids duplicating ~300KB of content
+      and logic; the animation retains full play/pause/mute controls and works responsively
+      inside the frame. We lazy-load the iframe when this section enters the viewport.
+    -->
+    <section class="section intro-animation" id="taros-intro" aria-labelledby="intro-animation-heading">
+      <div class="container">
+        <header class="intro-animation__header">
+          <h2 class="intro-animation__title" id="intro-animation-heading">TAROS intro</h2>
+          <p class="intro-animation__desc">Watch a short animated overview of TAROS and how it brings safety and governance to AI systems.</p>
+        </header>
+        <div class="intro-animation__wrapper">
+          <div class="intro-animation__scale">
+            <iframe
+              class="intro-animation__iframe"
+              title="TAROS animated introduction with voice-over"
+              data-src="animations/taros_introduction.html"
+            ></iframe>
+          </div>
+        </div>
+        <p class="intro-animation__hint">Use the controls inside the animation to play, pause, restart, or toggle voice-over. Buttons are keyboard-accessible.</p>
+      </div>
+    </section>
+
     <!-- 2. What TAROS is -->
     <section class="section" id="what-is-taros">
       <div class="container container--narrow">
