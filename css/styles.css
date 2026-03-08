@@ -196,9 +196,20 @@ p:last-child {
   text-decoration: none;
 }
 
+.logo__by {
+  font-size: 0.5em;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
 .logo:hover {
   color: var(--color-white);
   opacity: 0.9;
+}
+
+.logo:hover .logo__by {
+  color: var(--color-text-muted);
 }
 
 .nav {
