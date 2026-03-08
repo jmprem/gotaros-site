@@ -217,12 +217,12 @@ p:last-child {
   overflow: hidden;
 }
 
-/* Scale wrapper: render animation at ~118% then scale to 85% so full frame fits in the box */
+/* Scale wrapper: render animation larger then scale down so full frame fits. Base = large desktops. */
 .intro-animation__scale {
   position: absolute;
   top: 0;
   left: 0;
-  width: 117.65%;
+  width: 117.65%;   /* 100 / 0.85 */
   height: 117.65%;
   transform: scale(0.85);
   transform-origin: top left;
@@ -244,11 +244,53 @@ p:last-child {
   margin-bottom: 0;
 }
 
+/* Responsive scale: smaller viewports get more zoom-out so the full animation frame stays visible */
+
+/* Medium desktops / large laptops */
+@media (max-width: 1200px) {
+  .intro-animation__scale {
+    width: 121.95%;
+    height: 121.95%;
+    transform: scale(0.82);
+  }
+}
+
+/* Laptops / small desktops */
+@media (max-width: 992px) {
+  .intro-animation__scale {
+    width: 128.21%;
+    height: 128.21%;
+    transform: scale(0.78);
+  }
+}
+
+/* Tablets portrait, large phones */
 @media (max-width: 768px) {
   .intro-animation__wrapper {
     min-height: 280px;
     height: 60vh;
     max-height: 500px;
+  }
+
+  .intro-animation__scale {
+    width: 142.86%;
+    height: 142.86%;
+    transform: scale(0.7);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .intro-animation__wrapper {
+    min-height: 260px;
+    height: 55vh;
+    max-height: 420px;
+  }
+
+  .intro-animation__scale {
+    width: 166.67%;
+    height: 166.67%;
+    transform: scale(0.6);
   }
 }
 
