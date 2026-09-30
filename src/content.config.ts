@@ -11,6 +11,11 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
+    // Optional image shown at the top of the post and in the post list (path under public/).
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
+    // Optional "In short" summary box shown before the post body.
+    keyPoints: z.array(z.string()).optional(),
     // Drafts are shown by `npm run dev` but left out of the published site.
     draft: z.boolean().default(false),
   }),

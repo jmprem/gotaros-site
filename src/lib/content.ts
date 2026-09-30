@@ -24,5 +24,9 @@ export function getCaseStudies() {
 export const postUrl = (post: CollectionEntry<'blog'>) => `/blog/${post.id}.html`;
 export const caseStudyUrl = (study: CollectionEntry<'caseStudies'>) => `/case-studies/${study.id}.html`;
 
+// Minutes to read at ~220 words per minute, ignoring HTML tags and front matter.
+export const readingTime = (markdown: string) =>
+  Math.max(1, Math.round(markdown.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length / 220));
+
 export const formatDate = (date: Date) =>
   date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });

@@ -149,3 +149,6 @@ vite.config.ts.timestamp-*
 **/reference-taros*
 # Astro
 .astro/
+
+# Local exports (e.g. PDFs of posts) next to content are never committed
+src/content/**/*.pdf

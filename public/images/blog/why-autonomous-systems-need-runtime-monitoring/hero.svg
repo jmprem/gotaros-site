@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-labelledby="t d">
+  <title id="t">Design-time checks versus continuous runtime monitoring</title>
+  <desc id="d">Before release, a system is tested, reviewed and signed off once. In production, TAROS monitors every event continuously and each one is allowed, held or blocked.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2F9FD"/>
+      <stop offset="1" stop-color="#FFFDF2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#231F20"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif; fill: #231F20; }
+    .label { font-size: 15px; font-weight: 800; letter-spacing: .08em; }
+    .muted { fill: #555555; }
+    .small { font-size: 17px; }
+    .pill { font-size: 16px; font-weight: 600; }
+  </style>
+
+  <rect width="600" height="340" rx="16" fill="url(#bg)"/>
+
+  <!-- Before release: checked once -->
+  <text x="20" y="48" class="label muted">BEFORE</text>
+  <text x="20" y="66" class="label muted">RELEASE</text>
+  <rect x="20" y="140" width="104" height="34" rx="17" fill="#FFFFFF" stroke="#D9D9D9"/>
+  <text x="72" y="163" class="pill" text-anchor="middle">Test</text>
+  <rect x="20" y="184" width="104" height="34" rx="17" fill="#FFFFFF" stroke="#D9D9D9"/>
+  <text x="72" y="207" class="pill" text-anchor="middle">Review</text>
+  <rect x="20" y="228" width="104" height="34" rx="17" fill="#FFFFFF" stroke="#D9D9D9"/>
+  <text x="72" y="251" class="pill" text-anchor="middle">Sign-off</text>
+  <text x="20" y="296" class="small muted">Checked once</text>
+
+  <!-- Go live -->
+  <line x1="148" y1="40" x2="148" y2="300" stroke="#231F20" stroke-width="1.5" stroke-dasharray="5 6" opacity=".4"/>
+
+  <!-- In production: every event monitored -->
+  <text x="168" y="66" class="label" style="fill:#0092D5">IN PRODUCTION</text>
+  <rect x="168" y="80" width="416" height="52" rx="12" fill="#0092D5"/>
+  <text x="376" y="113" text-anchor="middle" style="fill:#FFFFFF;font-size:20px;font-weight:700">TAROS monitors every event</text>
+  <g stroke="#0092D5" stroke-width="1.5" opacity=".28">
+    <line x1="180" y1="132" x2="180" y2="232"/>
+    <line x1="201" y1="132" x2="201" y2="232"/>
+    <line x1="222" y1="132" x2="222" y2="232"/>
+    <line x1="243" y1="132" x2="243" y2="232"/>
+    <line x1="264" y1="132" x2="264" y2="232"/>
+    <line x1="285" y1="132" x2="285" y2="232"/>
+    <line x1="306" y1="132" x2="306" y2="232"/>
+    <line x1="327" y1="132" x2="327" y2="232"/>
+    <line x1="348" y1="132" x2="348" y2="232"/>
+    <line x1="369" y1="132" x2="369" y2="232"/>
+    <line x1="390" y1="132" x2="390" y2="232"/>
+    <line x1="411" y1="132" x2="411" y2="232"/>
+    <line x1="432" y1="132" x2="432" y2="232"/>
+    <line x1="453" y1="132" x2="453" y2="232"/>
+    <line x1="474" y1="132" x2="474" y2="232"/>
+    <line x1="495" y1="132" x2="495" y2="232"/>
+    <line x1="516" y1="132" x2="516" y2="232"/>
+    <line x1="537" y1="132" x2="537" y2="232"/>
+    <line x1="558" y1="132" x2="558" y2="232"/>
+    <line x1="579" y1="132" x2="579" y2="232"/>
+  </g>
+  <line x1="168" y1="240" x2="590" y2="240" stroke="#231F20" stroke-width="2" marker-end="url(#arrow)"/>
+  <g stroke="#FFFFFF" stroke-width="2">
+    <circle cx="180" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="201" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="222" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="243" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="264" cy="240" r="8" fill="#FFD500"/>
+    <circle cx="285" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="306" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="327" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="348" cy="240" r="8" fill="#231F20"/>
+    <circle cx="369" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="390" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="411" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="432" cy="240" r="8" fill="#FFD500"/>
+    <circle cx="453" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="474" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="495" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="516" cy="240" r="8" fill="#231F20"/>
+    <circle cx="537" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="558" cy="240" r="8" fill="#0092D5"/>
+    <circle cx="579" cy="240" r="8" fill="#FFD500"/>
+  </g>
+
+  <!-- Legend -->
+  <g class="small">
+    <circle cx="178" cy="290" r="8" fill="#0092D5"/><text x="194" y="296">Allowed</text>
+    <circle cx="300" cy="290" r="8" fill="#FFD500"/><text x="316" y="296">Held</text>
+    <circle cx="390" cy="290" r="8" fill="#231F20"/><text x="406" y="296">Blocked</text>
+  </g>
+</svg>

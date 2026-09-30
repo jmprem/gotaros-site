@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPosts, postUrl, formatDate } from '../../lib/content';
+import { getPosts, postUrl, formatDate, readingTime } from '../../lib/content';
 
 const posts = await getPosts();
 ---
@@ -24,13 +24,21 @@ const posts = await getPosts();
       ) : (
         <ul class="post-list">
           {posts.map((post) => (
-            <li class="post-list__item">
-              <p class="post-meta">
-                <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-                {post.data.draft && <span class="draft-badge">Draft</span>}
-              </p>
-              <h2 class="post-list__title"><a href={postUrl(post)}>{post.data.title}</a></h2>
-              <p class="post-list__summary">{post.data.description}</p>
+            <li class:list={['post-list__item', { 'post-list__item--with-image': post.data.heroImage }]}>
+              {post.data.heroImage && (
+                <a href={postUrl(post)} class="post-list__image" tabindex="-1" aria-hidden="true">
+                  <img src={post.data.heroImage} alt="" width="600" height="340" loading="lazy" />
+                </a>
+              )}
+              <div>
+                <p class="post-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+                  {' · '}{readingTime(post.body ?? '')} min read
+                  {post.data.draft && <span class="draft-badge">Draft</span>}
+                </p>
+                <h2 class="post-list__title"><a href={postUrl(post)}>{post.data.title}</a></h2>
+                <p class="post-list__summary">{post.data.description}</p>
+              </div>
             </li>
           ))}
         </ul>

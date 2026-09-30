@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 580" role="img" aria-labelledby="t d">
+  <title id="t">Three layers of control</title>
+  <desc id="d">L2, runtime oversight by TAROS, works per event and asks whether a system is permitted to act and who authorized it. L1, autonomy and fleet control, plans and carries out the mission in tens to hundreds of milliseconds. L0, the certified safety function, stops the machine in milliseconds over a hard-wired channel.</desc>
+  <style>
+    text { font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif; fill: #231F20; }
+    .tag { font-size: 19px; font-weight: 800; }
+    .title { font-size: 22px; font-weight: 700; }
+    .body { font-size: 18px; fill: #555555; }
+    .pill { font-size: 16px; font-weight: 700; }
+  </style>
+
+  <!-- L2: TAROS -->
+  <rect x="10" y="10" width="540" height="176" rx="16" fill="#EAF6FC" stroke="#0092D5" stroke-width="3"/>
+  <circle cx="54" cy="62" r="26" fill="#0092D5"/>
+  <text x="54" y="69" class="tag" text-anchor="middle" style="fill:#FFFFFF">L2</text>
+  <text x="96" y="58" class="title">Runtime oversight — TAROS</text>
+  <text x="96" y="92" class="body">Is this system permitted to do this,</text>
+  <text x="96" y="116" class="body">here, now? Who authorized it?</text>
+  <rect x="96" y="136" width="120" height="30" rx="15" fill="#0092D5"/>
+  <text x="156" y="157" class="pill" text-anchor="middle" style="fill:#FFFFFF">Per event</text>
+
+  <!-- L1: Autonomy -->
+  <rect x="10" y="202" width="540" height="176" rx="16" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="2"/>
+  <circle cx="54" cy="254" r="26" fill="#F2F2F2"/>
+  <text x="54" y="261" class="tag" text-anchor="middle" style="fill:#555555">L1</text>
+  <text x="96" y="250" class="title">Autonomy &amp; fleet control</text>
+  <text x="96" y="284" class="body">How do I carry out this mission?</text>
+  <text x="96" y="308" class="body">Planners, AI/SI agents, orchestration</text>
+  <rect x="96" y="328" width="220" height="30" rx="15" fill="#F2F2F2"/>
+  <text x="206" y="349" class="pill" text-anchor="middle">Tens to hundreds of ms</text>
+
+  <!-- L0: Safety function -->
+  <rect x="10" y="394" width="540" height="176" rx="16" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="2"/>
+  <circle cx="54" cy="446" r="26" fill="#FFF3B0"/>
+  <text x="54" y="453" class="tag" text-anchor="middle">L0</text>
+  <text x="96" y="442" class="title">Certified safety function</text>
+  <text x="96" y="476" class="body">Is someone about to be hit? Stop now.</text>
+  <text x="96" y="500" class="body">E-stops and safety controllers</text>
+  <rect x="96" y="520" width="240" height="30" rx="15" fill="#FFF3B0"/>
+  <text x="216" y="541" class="pill" text-anchor="middle">Milliseconds · hard-wired</text>
+</svg>

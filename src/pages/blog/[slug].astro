@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPosts, formatDate } from '../../lib/content';
+import { getPosts, formatDate, readingTime } from '../../lib/content';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -9,30 +9,72 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
-const { title, description, pubDate, updatedDate, draft } = post.data;
+const { Content, headings } = await render(post);
+const { title, description, pubDate, updatedDate, tags, heroImage, heroAlt, keyPoints, draft } = post.data;
+const toc = headings.filter((h) => h.depth === 2);
 ---
 
 <BaseLayout title={`${title} — TAROS`} description={description} current="blog">
-  <article>
-    <header class="page-header">
-      <div class="container container--narrow">
-        <p class="post-meta">
-          <a href="/blog/">Blog</a> ·
+  <article class="article">
+    <header class="article-header">
+      <div class="container article-grid">
+        <div>
+        <p class="article-header__back"><a href="/blog/">← All posts</a></p>
+        {tags.length > 0 && (
+          <ul class="tag-list" aria-label="Topics">
+            {tags.map((tag) => <li class="tag-list__item">{tag}</li>)}
+          </ul>
+        )}
+        <h1 class="article-header__title">{title}</h1>
+        <p class="article-header__lead">{description}</p>
+        <p class="article-meta">
+          <span class="article-meta__author">TAROS by jamberi</span>
+          <span aria-hidden="true">·</span>
           <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
-          {updatedDate && <span> · Updated {formatDate(updatedDate)}</span>}
+          {updatedDate && <><span aria-hidden="true">·</span><span>Updated {formatDate(updatedDate)}</span></>}
+          <span aria-hidden="true">·</span>
+          <span>{readingTime(post.body ?? '')} min read</span>
           {draft && <span class="draft-badge">Draft — not published</span>}
         </p>
-        <h1>{title}</h1>
-        <p class="lead">{description}</p>
+        {heroImage && (
+          <div class="article-hero">
+            <img src={heroImage} alt={heroAlt ?? ''} width="600" height="340" />
+          </div>
+        )}
+        </div>
       </div>
     </header>
 
-    <section class="section">
-      <div class="container container--narrow prose">
-        <Content />
+    <div class="container article-grid article-layout">
+      <div class="article-body">
+        {keyPoints && keyPoints.length > 0 && (
+          <aside class="key-points" aria-label="In short">
+            <p class="key-points__title">In short</p>
+            <ul>
+              {keyPoints.map((point) => <li>{point}</li>)}
+            </ul>
+          </aside>
+        )}
+        <div class="prose">
+          <Content />
+        </div>
+
+        <aside class="author-box">
+          <p class="author-box__name">TAROS by jamberi</p>
+          <p class="author-box__text">TAROS, the Trusted Autonomous Runtime Oversight System, monitors autonomous systems and AI/SI agents while they run, applies signed policies, and records every decision with its reason.</p>
+          <p class="author-box__links"><a href="/platform.html">How the platform works</a> · <a href="/blog/">More posts</a> · <a href="/rss.xml">RSS</a></p>
+        </aside>
       </div>
-    </section>
+
+      {toc.length > 1 && (
+        <nav class="article-toc" aria-label="On this page">
+          <p class="article-toc__title">On this page</p>
+          <ol>
+            {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+          </ol>
+        </nav>
+      )}
+    </div>
   </article>
 
   <section class="section" id="cta">
