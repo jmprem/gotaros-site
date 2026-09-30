@@ -1,6 +1,6 @@
 # TAROS — Public Website
 
-Public website for **TAROS**, an AI safety platform for the enterprise. The site communicates high-level value to enterprises: governance, oversight, and operational trust for AI-driven systems—without exposing implementation details.
+Public website for **TAROS**, the Trusted Autonomous Runtime Oversight System by jamberi. TAROS monitors autonomous systems and AI/SI (Artificial Intelligence or Super Intelligence) agents while they run. The site explains that value at a high level (runtime monitoring, policy control, and a recorded reason for every decision) without exposing implementation details.
 
 ## What this site is
 
@@ -36,20 +36,27 @@ Without npm, you can open `index.html` directly in a browser, or use any static 
 
 ```
 /
-├── index.html          # Homepage
-├── platform.html
+├── index.html          # Homepage (hero, intro animation, overview)
+├── platform.html       # Platform details
 ├── about.html
 ├── contact.html
+├── 404.html            # Served by GitHub Pages for unknown URLs
+├── animations/
+│   └── taros_introduction.html   # Self-contained intro animation with voice-over, embedded on the homepage
 ├── css/
 │   └── styles.css
 ├── js/
-│   └── main.js
+│   └── main.js         # Mobile nav, lazy-loading and sizing of the intro animation frame
 ├── assets/
-│   ├── images/
-│   └── icons/
+│   ├── images/         # (empty placeholder)
+│   └── icons/          # (empty placeholder)
+├── CNAME               # Custom domain for GitHub Pages (www.gotaros.com)
+├── LICENSE
 ├── package.json
 └── README.md
 ```
+
+The intro animation is loaded in an iframe. It reports the height its tallest scene needs (via `postMessage`), and `js/main.js` sizes the frame to fit: wide screens show the desktop layout scaled down, while tablets and phones use the animation's own single-column layout at full size.
 
 ## Scripts
 
