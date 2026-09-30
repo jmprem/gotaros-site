@@ -727,7 +727,7 @@
 
       .scene {
         padding: 136px 14px 116px;
-        align-items: start;
+        align-items: center;
       }
 
       .content {
@@ -849,6 +849,43 @@
     }
 
 
+    /* Phones: stack the first frame's three cards so their text is readable */
+    @media (max-width: 600px) {
+      .scene[data-index="0"] .grid3 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* "Who it is for": 2×2 compact cards so this scene doesn't set a very tall frame */
+      .scene[data-index="2"] .audience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .scene[data-index="2"] .aud-card {
+        min-height: 0;
+        padding: 12px;
+      }
+
+      .scene[data-index="2"] .aud-card .tag {
+        margin-bottom: 6px;
+        padding: 4px 8px;
+        font-size: .68rem;
+      }
+
+      .scene[data-index="2"] .aud-card h3 {
+        margin: 0 0 4px;
+        font-size: .95rem;
+        line-height: 1.25;
+      }
+
+      .scene[data-index="2"] .aud-card p.lead {
+        margin: 0;
+        font-size: .82rem !important;
+        line-height: 1.35;
+      }
+    }
+
 /* Remove spoke/connector lines behind TAROS in first frame */
 .scene[data-index="0"] .connector {
   display: none !important;
@@ -878,20 +915,20 @@
         <div class="content">
           <div>
             <div class="eyebrow">What TAROS is</div>
-            <h1>TAROS is the <span class="highlight">safety and governance layer</span> for AI systems.</h1>
-            <p class="lead">It sits between powerful AI models, agents, tools, and real-world actions—so intelligent systems can operate with <span class="accent">control, accountability, and trust</span>.</p>
+            <h1>TAROS is the <span class="highlight">runtime monitoring layer</span> for autonomous systems.</h1>
+            <p class="lead">The Trusted Autonomous Runtime Oversight System monitors AI/SI models, agents, tools, and real-world actions—so autonomous systems operate with <span class="accent">control, accountability, and trust</span>.</p>
             <div class="grid3">
               <div class="mini-card">
                 <h3>Policies</h3>
-                <p>Define what AI systems may, must, or must not do.</p>
+                <p>Define what AI/SI systems may, must, or must not do.</p>
               </div>
               <div class="mini-card">
-                <h3>Decisions</h3>
-                <p>Evaluate events in real time before risk turns into damage.</p>
+                <h3>Monitoring</h3>
+                <p>Watch every event in real time and allow, hold, or block it.</p>
               </div>
               <div class="mini-card">
-                <h3>Incidents</h3>
-                <p>Record, escalate, and govern failures with evidence.</p>
+                <h3>Evidence</h3>
+                <p>Record every decision with its reason, ready for audit.</p>
               </div>
             </div>
           </div>
@@ -901,7 +938,7 @@
               <div class="pulse"></div>
               <div class="spoke s1">
                 <div class="connector conn1"></div>
-                <div class="node blue">AI</div>
+                <div class="node blue">AI/SI</div>
               </div>
               <div class="spoke s2">
                 <div class="connector conn2"></div>
@@ -929,9 +966,9 @@
         <div class="content">
           <div>
             <div class="eyebrow">Why it is needed</div>
-            <h2>The AI era needs more than intelligence. It needs <span class="highlight">guarded intelligence</span>.</h2>
-            <p class="lead">As AI moves from chat to action, the risks multiply: autonomous decisions, unpredictable behavior, compliance pressure, security exposure, and fragile multi-agent workflows.</p>
-            <p class="scene-note">Without an explicit control layer, capability can outrun safety.</p>
+            <h2>The AI/SI era needs more than intelligence. It needs <span class="highlight">monitored intelligence</span>.</h2>
+            <p class="lead">As AI/SI moves from chat to action, the risks multiply: autonomous decisions, unpredictable behavior, compliance pressure, security exposure, and fragile multi-agent workflows.</p>
+            <p class="scene-note">Without runtime monitoring, capability can outrun safety.</p>
           </div>
           <div class="problem-stack">
             <div class="problem"><div class="icon">!</div><div><strong>Autonomous action</strong><br><span style="color:var(--color-text-muted)">Agents can trigger tools, data flows, and operational changes at machine speed.</span></div></div>
@@ -946,14 +983,14 @@
         <div class="content">
           <div>
             <div class="eyebrow">Who it is for</div>
-            <h2>Built for organizations that need AI to be <span class="accent">safe, reliable, and governable</span>.</h2>
-            <p class="lead">TAROS serves the teams building AI, the leaders governing risk, and the enterprises deploying AI into serious, high-stakes environments.</p>
+            <h2>Built for organizations that need AI/SI to be <span class="accent">safe, reliable, and governable</span>.</h2>
+            <p class="lead">TAROS serves the teams building AI/SI, the leaders governing risk, and the enterprises deploying AI/SI into serious, high-stakes environments.</p>
           </div>
           <div class="audience-grid">
-            <div class="card aud-card"><span class="tag">Builders</span><h3>AI product and engineering teams</h3><p class="lead" style="font-size:1rem">For teams creating assistants, copilots, autonomous workflows, robotics, or multi-agent platforms.</p></div>
+            <div class="card aud-card"><span class="tag">Builders</span><h3>AI/SI product and engineering teams</h3><p class="lead" style="font-size:1rem">For teams creating assistants, copilots, autonomous workflows, robotics, or multi-agent platforms.</p></div>
             <div class="card aud-card"><span class="tag">Oversight</span><h3>Risk, security, and governance leaders</h3><p class="lead" style="font-size:1rem">For teams responsible for policy, assurance, compliance, review, and escalation.</p></div>
-            <div class="card aud-card"><span class="tag">Enterprise</span><h3>Organizations adopting AI at scale</h3><p class="lead" style="font-size:1rem">For enterprises that cannot afford uncontrolled automation, silent failures, or weak accountability.</p></div>
-            <div class="card aud-card"><span class="tag">Future systems</span><h3>Autonomous and agentic ecosystems</h3><p class="lead" style="font-size:1rem">For the next generation of AI systems where software doesn’t just answer—it acts.</p></div>
+            <div class="card aud-card"><span class="tag">Enterprise</span><h3>Organizations adopting AI/SI at scale</h3><p class="lead" style="font-size:1rem">For enterprises that cannot afford uncontrolled automation, silent failures, or weak accountability.</p></div>
+            <div class="card aud-card"><span class="tag">Future systems</span><h3>Autonomous and agentic ecosystems</h3><p class="lead" style="font-size:1rem">For the next generation of AI/SI systems where software doesn’t just answer—it acts.</p></div>
           </div>
         </div>
       </section>
@@ -962,17 +999,17 @@
         <div class="content">
           <div>
             <div class="eyebrow">How it adds value</div>
-            <h2>TAROS turns AI ambition into <span class="highlight">operational trust</span>.</h2>
-            <p class="lead">It helps organizations define policy, evaluate behavior, control risk, record evidence, and scale trustworthy AI with confidence.</p>
+            <h2>TAROS turns AI/SI ambition into <span class="highlight">operational trust</span>.</h2>
+            <p class="lead">It monitors behavior at runtime, applies policy, controls risk, records evidence, and helps organizations scale trustworthy AI/SI with confidence.</p>
           </div>
           <div class="card hero-card">
             <div class="value-wheel">
-              <div class="core">Trusted<br>AI<br>Operations</div>
-              <div class="orbit o1">Runtime policy control</div>
+              <div class="core">Trusted<br>AI/SI<br>Operations</div>
+              <div class="orbit o1">Runtime monitoring</div>
               <div class="orbit o2">Safer agent actions</div>
               <div class="orbit o3">Auditability & evidence</div>
               <div class="orbit o4">Faster enterprise adoption</div>
-              <div class="orbit o5">Governance by design</div>
+              <div class="orbit o5">Policy control by design</div>
             </div>
           </div>
         </div>
@@ -986,7 +1023,7 @@
             <p class="lead">Visit the TAROS website to learn more, follow the roadmap, and connect for enterprise discussions, partnerships, or early adoption.</p>
             <div class="cta-list">
               <div class="cta-item"><div class="check">✓</div><div>Discover what TAROS stands for</div></div>
-              <div class="cta-item"><div class="check">✓</div><div>Understand how it supports AI safety and governance</div></div>
+              <div class="cta-item"><div class="check">✓</div><div>Understand how it monitors AI/SI systems at runtime</div></div>
               <div class="cta-item"><div class="check">✓</div><div>Connect for demos, collaboration, and strategic conversations</div></div>
             </div>
             <div style="margin-top:22px">
@@ -998,11 +1035,9 @@
           </div>
           <div class="card cta-box">
             <h3 style="margin:0;font-size:2rem;letter-spacing:-0.03em">TAROS</h3>
-            <p class="lead" style="max-width:none">The future of AI will not be defined only by what systems can do. It will be defined by how safely, reliably, and responsibly they do it.</p>
+            <p class="lead" style="max-width:none">The future of AI/SI will not be defined only by what systems can do. It will be defined by how safely, reliably, and responsibly they do it.</p>
             <div style="display:grid;gap:10px;margin-top:8px;color:var(--color-text-muted)">
               <div><strong style="color:var(--color-brand-primary)">Website:</strong> gotaros.com</div>
-              <div><strong style="color:var(--color-brand-primary)">Use:</strong> Website hero section, product intro page, keynote backdrop, or investor narrative</div>
-              <div><strong style="color:var(--color-brand-primary)">Format:</strong> HTML, CSS, JavaScript, responsive and embeddable</div>
             </div>
           </div>
         </div>
@@ -1025,28 +1060,28 @@
     const script = [
       {
         duration: 18000,
-        caption: 'TAROS is the safety and governance layer for AI systems. It sits between models, agents, tools, and real-world actions—bringing control, accountability, and trust to intelligent operations.',
-        speech: 'TAROS is the safety and governance layer for AI systems. It sits between models, agents, tools, and real-world actions, bringing control, accountability, and trust to intelligent operations.'
+        caption: 'TAROS, the Trusted Autonomous Runtime Oversight System, is the runtime monitoring layer for autonomous systems. It monitors AI/SI models, agents, tools, and real-world actions—bringing control, accountability, and trust to intelligent operations.',
+        speech: 'TAROS, the Trusted Autonomous Runtime Oversight System, is the runtime monitoring layer for autonomous systems. It monitors A I and super intelligence models, agents, tools, and real-world actions, bringing control, accountability, and trust to intelligent operations.'
       },
       {
         duration: 19000,
-        caption: 'In the modern age of AI, systems are moving beyond answering questions. They are taking actions. That creates new risks: autonomous behavior, opaque decisions, compliance pressure, and fragile multi-agent environments.',
-        speech: 'In the modern age of AI, systems are moving beyond answering questions. They are taking actions. That creates new risks: autonomous behavior, opaque decisions, compliance pressure, and fragile multi-agent environments.'
+        caption: 'In the age of AI/SI, systems are moving beyond answering questions. They are taking actions. That creates new risks: autonomous behavior, opaque decisions, compliance pressure, and fragile multi-agent environments. Without runtime monitoring, capability can outrun safety.',
+        speech: 'In the age of A I and super intelligence, systems are moving beyond answering questions. They are taking actions. That creates new risks: autonomous behavior, opaque decisions, compliance pressure, and fragile multi-agent environments. Without runtime monitoring, capability can outrun safety.'
       },
       {
         duration: 17000,
-        caption: 'TAROS is for AI product teams, engineering organizations, risk and security leaders, and enterprises deploying AI into serious environments where safety, reliability, and governance matter.',
-        speech: 'TAROS is for AI product teams, engineering organizations, risk and security leaders, and enterprises deploying AI into serious environments where safety, reliability, and governance matter.'
+        caption: 'TAROS is for AI/SI product teams, engineering organizations, risk and security leaders, and enterprises deploying AI/SI into serious environments where safety, reliability, and governance matter.',
+        speech: 'TAROS is for A I and S I product teams, engineering organizations, risk and security leaders, and enterprises deploying A I and S I into serious environments where safety, reliability, and governance matter.'
       },
       {
         duration: 18000,
-        caption: 'TAROS adds value by enabling runtime policy control, safer agent behavior, auditability, evidence, governance by design, and faster enterprise confidence in AI adoption.',
-        speech: 'TAROS adds value by enabling runtime policy control, safer agent behavior, auditability, evidence, governance by design, and faster enterprise confidence in AI adoption.'
+        caption: 'TAROS adds value through continuous runtime monitoring, policy control, safer agent behavior, auditability and evidence, and faster enterprise confidence in AI/SI adoption.',
+        speech: 'TAROS adds value through continuous runtime monitoring, policy control, safer agent behavior, auditability and evidence, and faster enterprise confidence in A I and S I adoption.'
       },
       {
         duration: 18000,
-        caption: 'To learn more, visit gotaros.com. Explore the vision, understand the platform, and connect for demos, partnerships, and strategic conversations about the future of safe AI.',
-        speech: 'To learn more, visit go taros dot com. Explore the vision, understand the platform, and connect for demos, partnerships, and strategic conversations about the future of safe A I.'
+        caption: 'To learn more, visit gotaros.com. Explore the vision, understand the platform, and connect for demos, partnerships, and strategic conversations about the future of safe AI/SI.',
+        speech: 'To learn more, visit go taros dot com. Explore the vision, understand the platform, and connect for demos, partnerships, and strategic conversations about the future of safe A I and super intelligence.'
       }
     ];
 
@@ -1189,6 +1224,25 @@
     }
 
     updateAudioStateNotice();
+
+    // When embedded, tell the host page how tall the frame must be for the tallest scene
+    // to fit at the current width, so every scene is shown in full without clipping.
+    function reportSize() {
+      if (window.parent === window) return;
+      let needed = 0;
+      scenes.forEach((scene) => {
+        const style = getComputedStyle(scene);
+        const content = scene.querySelector('.content');
+        const height = content.offsetHeight + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+        needed = Math.max(needed, height);
+      });
+      window.parent.postMessage({ type: 'taros-intro:size', height: Math.ceil(needed) }, '*');
+    }
+
+    window.addEventListener('load', reportSize);
+    window.addEventListener('resize', reportSize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(reportSize);
+    reportSize();
   </script>
 </body>
 </html>

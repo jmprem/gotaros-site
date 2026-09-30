@@ -37,6 +37,51 @@
   var introSection = document.getElementById('taros-intro');
   var introIframe = introSection ? introSection.querySelector('.intro-animation__iframe[data-src]') : null;
 
+  // Size the intro frame so the whole animation is visible at every screen size.
+  // Wide screens render the desktop composition at DESKTOP_WIDTH and scale it down to fit;
+  // narrower screens use the animation's own single-column layout at full size (no scaling).
+  // The animation reports the height its tallest scene needs via postMessage.
+  var introWrapper = introSection ? introSection.querySelector('.intro-animation__wrapper') : null;
+  var introScale = introSection ? introSection.querySelector('.intro-animation__scale') : null;
+  var DESKTOP_WIDTH = 1280;
+  var SCALE_FROM_WIDTH = 900;
+  var MIN_DESKTOP_HEIGHT = 720;
+  var reportedHeight = 0;
+
+  function layoutIntro() {
+    if (!introWrapper || !introScale) return;
+    var width = introWrapper.clientWidth;
+    if (!width) return;
+    var desktop = width >= SCALE_FROM_WIDTH;
+    var frameWidth = desktop ? Math.max(width, DESKTOP_WIDTH) : width;
+    var scale = width / frameWidth;
+    var frameHeight = reportedHeight || (desktop ? 800 : 1200);
+    if (desktop) frameHeight = Math.max(frameHeight, MIN_DESKTOP_HEIGHT);
+
+    introScale.style.width = frameWidth + 'px';
+    introScale.style.height = frameHeight + 'px';
+    introScale.style.transform = scale === 1 ? 'none' : 'scale(' + scale + ')';
+    introWrapper.style.height = Math.ceil(frameHeight * scale) + 'px';
+  }
+
+  if (introIframe) {
+    window.addEventListener('message', function (event) {
+      var data = event.data;
+      if (event.source !== introIframe.contentWindow || !data || data.type !== 'taros-intro:size') return;
+      if (data.height > 0 && data.height !== reportedHeight) {
+        reportedHeight = data.height;
+        layoutIntro();
+      }
+    });
+
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(layoutIntro, 100);
+    });
+    layoutIntro();
+  }
+
   if (introIframe && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
       function (entries) {

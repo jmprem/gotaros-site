@@ -208,23 +208,20 @@ p:last-child {
 .intro-animation__wrapper {
   position: relative;
   width: 100%;
-  min-height: 320px;
-  height: 70vh;
-  max-height: 720px;
+  aspect-ratio: 16 / 10; /* placeholder until js/main.js sizes the frame to the animation */
   background-color: var(--color-surface);
   border: 1px solid var(--color-border-subtle);
   border-radius: 8px;
   overflow: hidden;
 }
 
-/* Scale wrapper: render animation larger then scale down so full frame fits. Base = large desktops. */
+/* Sized and scaled by js/main.js so the full animation frame fits at every screen size. */
 .intro-animation__scale {
   position: absolute;
   top: 0;
   left: 0;
-  width: 117.65%;   /* 100 / 0.85 */
-  height: 117.65%;
-  transform: scale(0.85);
+  width: 100%;
+  height: 100%;
   transform-origin: top left;
 }
 
@@ -242,56 +239,6 @@ p:last-child {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   margin-bottom: 0;
-}
-
-/* Responsive scale: smaller viewports get more zoom-out so the full animation frame stays visible */
-
-/* Medium desktops / large laptops */
-@media (max-width: 1200px) {
-  .intro-animation__scale {
-    width: 121.95%;
-    height: 121.95%;
-    transform: scale(0.82);
-  }
-}
-
-/* Laptops / small desktops */
-@media (max-width: 992px) {
-  .intro-animation__scale {
-    width: 128.21%;
-    height: 128.21%;
-    transform: scale(0.78);
-  }
-}
-
-/* Tablets portrait, large phones */
-@media (max-width: 768px) {
-  .intro-animation__wrapper {
-    min-height: 280px;
-    height: 60vh;
-    max-height: 500px;
-  }
-
-  .intro-animation__scale {
-    width: 142.86%;
-    height: 142.86%;
-    transform: scale(0.7);
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .intro-animation__wrapper {
-    min-height: 260px;
-    height: 55vh;
-    max-height: 420px;
-  }
-
-  .intro-animation__scale {
-    width: 166.67%;
-    height: 166.67%;
-    transform: scale(0.6);
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -678,6 +625,135 @@ p:last-child {
 
 .page-header .lead {
   margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Platform page
+   -------------------------------------------------------------------------- */
+/* Layers of control (L2 / L1 / L0) */
+.layers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.layers__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+}
+
+.layers__item strong {
+  display: block;
+  color: var(--color-text);
+}
+
+.layers__item span:not(.layers__tag) {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.layers__tag {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-elevated);
+}
+
+.layers__item--taros {
+  border-color: var(--color-brand-primary);
+  border-width: 2px;
+}
+
+.layers__item--taros .layers__tag {
+  color: var(--color-text-on-primary);
+  background-color: var(--color-brand-primary);
+}
+
+.layers__caption {
+  margin-top: var(--space-lg);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+/* How it works: numbered steps */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-xl);
+  counter-reset: step;
+}
+
+.steps__item {
+  counter-increment: step;
+  padding-top: var(--space-lg);
+  border-top: 3px solid var(--color-brand-primary);
+}
+
+.steps__item p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.steps__title {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-sm);
+}
+
+.steps__title::before {
+  content: counter(step) ". ";
+  color: var(--color-brand-primary);
+}
+
+/* Example stories */
+.stories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.stories__item {
+  margin: 0;
+  padding: var(--space-lg) var(--space-xl);
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-brand-secondary);
+  border-radius: 0 8px 8px 0;
+}
+
+.stories__item p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.stories__item .stories__quote {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.platform-subhead {
+  font-size: 1.375rem;
+  margin-top: var(--space-2xl);
 }
 
 /* --------------------------------------------------------------------------
