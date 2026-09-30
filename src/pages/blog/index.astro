@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, postUrl, formatDate } from '../../lib/content';
+
+const posts = await getPosts();
+---
+
+<BaseLayout
+  title="Blog — TAROS"
+  description="Notes from the TAROS team on runtime monitoring and oversight for autonomous systems and AI/SI agents."
+  current="blog"
+>
+  <header class="page-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="lead">Notes on runtime monitoring and oversight for autonomous systems and AI/SI.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container container--narrow">
+      {posts.length === 0 ? (
+        <p>The first posts are on their way. <a href="/rss.xml">Subscribe via RSS</a> to hear when they’re published.</p>
+      ) : (
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li class="post-list__item">
+              <p class="post-meta">
+                <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+                {post.data.draft && <span class="draft-badge">Draft</span>}
+              </p>
+              <h2 class="post-list__title"><a href={postUrl(post)}>{post.data.title}</a></h2>
+              <p class="post-list__summary">{post.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      <p class="post-list__rss"><a href="/rss.xml">RSS feed</a></p>
+    </div>
+  </section>
+</BaseLayout>

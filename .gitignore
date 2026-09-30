@@ -147,3 +147,5 @@ vite.config.ts.timestamp-*
 *.log
 
 **/reference-taros*
+# Astro
+.astro/

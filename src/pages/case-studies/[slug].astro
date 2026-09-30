@@ -1,0 +1,46 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCaseStudies, formatDate } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const studies = await getCaseStudies();
+  return studies.map((study) => ({ params: { slug: study.id }, props: { study } }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+const { title, description, pubDate, partner, industry, draft } = study.data;
+---
+
+<BaseLayout title={`${title} — TAROS case study`} description={description} current="case-studies">
+  <article>
+    <header class="page-header">
+      <div class="container container--narrow">
+        <p class="post-meta">
+          <a href="/case-studies/">Case studies</a> · {industry} · {partner} ·
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+          {draft && <span class="draft-badge">Draft — not published</span>}
+        </p>
+        <h1>{title}</h1>
+        <p class="lead">{description}</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container container--narrow prose">
+        <Content />
+      </div>
+    </section>
+  </article>
+
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2 class="cta-block__title">Become a design partner</h2>
+        <p class="cta-block__text">We’re working with early partners deploying autonomous systems and AI/SI agents. Let’s talk about what you need to monitor.</p>
+        <a href="/contact.html" class="cta-block__link">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

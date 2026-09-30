@@ -1,0 +1,76 @@
+---
+// Shared page shell: head, site header/nav, footer. Every page renders inside this.
+import { getCaseStudies } from '../lib/content';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Nav item to mark as current: 'home' | 'platform' | 'blog' | 'case-studies' | 'about' | 'contact' */
+  current?: string;
+  /** Extra classes for <main> (the 404 page uses the hero section styling). */
+  mainClass?: string;
+}
+
+const { title, description, current, mainClass } = Astro.props;
+
+// The Case studies nav item only appears once at least one case study is published.
+const hasCaseStudies = (await getCaseStudies()).length > 0;
+
+const nav = [
+  { key: 'home', href: '/', label: 'Home' },
+  { key: 'platform', href: '/platform.html', label: 'Platform' },
+  { key: 'blog', href: '/blog/', label: 'Blog' },
+  ...(hasCaseStudies ? [{ key: 'case-studies', href: '/case-studies/', label: 'Case studies' }] : []),
+  { key: 'about', href: '/about.html', label: 'About' },
+  { key: 'contact', href: '/contact.html', label: 'Contact' },
+];
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {description && <meta name="description" content={description}>}
+  <title>{title}</title>
+  <link rel="canonical" href={canonical}>
+  <link rel="alternate" type="application/rss+xml" title="TAROS blog" href="/rss.xml">
+  <link rel="sitemap" href="/sitemap-index.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">TAROS <span class="logo__by">by jamberi</span></a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span aria-hidden="true">≡</span>
+      </button>
+      <nav id="main-nav" class="nav" aria-label="Main navigation" aria-hidden="true">
+        {nav.map((item) => (
+          <a href={item.href} class={item.key === current ? 'nav__current' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </div>
+  </header>
+
+  <main class={mainClass}>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <p class="footer-copy">© TAROS. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script is:inline src="/js/main.js"></script>
+</body>
+</html>

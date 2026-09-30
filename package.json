@@ -1,11 +1,18 @@
 {
   "name": "gotaros-site",
   "version": "1.0.0",
-  "description": "TAROS — AI Safety Platform for the Enterprise. Public website.",
+  "description": "TAROS — Trusted Autonomous Runtime Oversight System. Public website.",
   "private": true,
   "scripts": {
-    "dev": "npx serve . -p 3000",
-    "preview": "npm run dev",
-    "build": "echo \"Static site — no build step. Deploy as-is to GitHub Pages.\""
-  }
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5"
+  },
+  "type": "module"
 }

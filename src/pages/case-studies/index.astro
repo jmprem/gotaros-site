@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCaseStudies, caseStudyUrl, formatDate } from '../../lib/content';
+
+const studies = await getCaseStudies();
+---
+
+<BaseLayout
+  title="Case studies — TAROS"
+  description="How organizations use TAROS to monitor autonomous systems and AI/SI agents while they run."
+  current="case-studies"
+>
+  <header class="page-header">
+    <div class="container">
+      <h1>Case studies</h1>
+      <p class="lead">How organizations use TAROS to monitor autonomous systems while they run.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container container--narrow">
+      {studies.length === 0 ? (
+        <p>We’ll publish case studies here together with our design partners. <a href="/contact.html">Get in touch</a> if you’d like to become one.</p>
+      ) : (
+        <ul class="post-list">
+          {studies.map((study) => (
+            <li class="post-list__item">
+              <p class="post-meta">
+                {study.data.industry} · {study.data.partner}
+                {study.data.draft && <span class="draft-badge">Draft</span>}
+              </p>
+              <h2 class="post-list__title"><a href={caseStudyUrl(study)}>{study.data.title}</a></h2>
+              <p class="post-list__summary">{study.data.description}</p>
+              <p class="post-meta"><time datetime={study.data.pubDate.toISOString()}>{formatDate(study.data.pubDate)}</time></p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</BaseLayout>

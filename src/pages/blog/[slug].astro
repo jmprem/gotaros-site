@@ -1,0 +1,47 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, formatDate } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, updatedDate, draft } = post.data;
+---
+
+<BaseLayout title={`${title} — TAROS`} description={description} current="blog">
+  <article>
+    <header class="page-header">
+      <div class="container container--narrow">
+        <p class="post-meta">
+          <a href="/blog/">Blog</a> ·
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+          {updatedDate && <span> · Updated {formatDate(updatedDate)}</span>}
+          {draft && <span class="draft-badge">Draft — not published</span>}
+        </p>
+        <h1>{title}</h1>
+        <p class="lead">{description}</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container container--narrow prose">
+        <Content />
+      </div>
+    </section>
+  </article>
+
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2 class="cta-block__title">Explore TAROS</h2>
+        <p class="cta-block__text">See how TAROS monitors autonomous systems and AI/SI agents while they run, or talk to us about becoming a design partner.</p>
+        <a href="/contact.html" class="cta-block__link">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

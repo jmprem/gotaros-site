@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About — TAROS"
+  description="About TAROS — why we built the Trusted Autonomous Runtime Oversight System, developed by jamberi to monitor autonomous systems and AI/SI agents while they run."
+  current="about"
+>
+  <header class="page-header">
+    <div class="container">
+      <h1>About</h1>
+      <p class="lead">Why we built TAROS.</p>
+    </div>
+  </header>
+
+  <!-- 1. Why TAROS exists -->
+  <section class="section" id="why">
+    <div class="container container--narrow">
+      <header class="section__header">
+        <h2 class="section__title">Why TAROS exists</h2>
+        <p class="section__intro lead">AI/SI (Artificial Intelligence or Super Intelligence) systems are starting to act on the world: robots on warehouse floors, and agents that settle insurance claims.</p>
+      </header>
+      <p>Organizations deploying them run into the same four problems:</p>
+      <ul class="gains-list">
+        <li><strong>Rules live in code, runbooks, and people’s heads</strong> — Nobody can say with confidence which controls are in force, where, and since when.</li>
+        <li><strong>Separation of duties is procedural</strong> — The engineer who writes a control can often also switch it on or loosen it.</li>
+        <li><strong>Evidence is reconstructed after the fact</strong> — “Why did unit 7 stop?” or “Who released this payment?” gets answered from memory and logs, if at all.</li>
+        <li><strong>New controls can’t be trialled safely</strong> — You can’t A/B test a safety envelope on real robots.</li>
+      </ul>
+      <p>Regulation, such as the EU AI Act and the EU Machinery Regulation, is raising the pressure on all four.</p>
+    </div>
+  </section>
+
+  <!-- 2. Mission -->
+  <section class="section section--alt" id="mission">
+    <div class="container container--narrow">
+      <header class="section__header">
+        <h2 class="section__title">Our mission</h2>
+      </header>
+      <p class="lead">To let organizations prove, at any moment, which controls govern their autonomous systems, who authorized each one, and why each decision was taken. We do that by monitoring those systems while they run.</p>
+    </div>
+  </section>
+
+  <!-- 3. The name -->
+  <section class="section" id="name">
+    <div class="container">
+      <header class="section__header">
+        <h2 class="section__title">What’s in the name</h2>
+        <p class="section__intro">TAROS stands for Trusted Autonomous Runtime Oversight System.</p>
+      </header>
+      <div class="pillars">
+        <article class="pillar">
+          <h3 class="pillar__title">Trusted</h3>
+          <p class="pillar__text">No single person can write, activate, and approve a control, and every policy is signed.</p>
+        </article>
+        <article class="pillar">
+          <h3 class="pillar__title">Autonomous</h3>
+          <p class="pillar__text">The systems TAROS monitors are autonomous machines and AI/SI agents.</p>
+        </article>
+        <article class="pillar">
+          <h3 class="pillar__title">Runtime</h3>
+          <p class="pillar__text">Monitoring happens while systems run, on every event—not only at design review.</p>
+        </article>
+        <article class="pillar">
+          <h3 class="pillar__title">Oversight</h3>
+          <p class="pillar__text">TAROS monitors, decides, and records—and people oversee TAROS’s own policies.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. What we believe -->
+  <section class="section section--alt" id="beliefs">
+    <div class="container container--narrow">
+      <header class="section__header">
+        <h2 class="section__title">What we believe</h2>
+      </header>
+      <ul class="gains-list">
+        <li><strong>Safety belongs at runtime</strong> — Enforced where actions happen, not by instructions to a model.</li>
+        <li><strong>Governance should be deterministic</strong> — The same event and the same policies should always give the same result.</li>
+        <li><strong>Evidence comes first</strong> — Auditability is a feature, not an afterthought.</li>
+        <li><strong>Human authority must be real</strong> — Explicit, bounded, and enforceable.</li>
+        <li><strong>Everything should be attributable</strong> — Policies, evidence, and decisions are versioned and traceable to the people behind them.</li>
+      </ul>
+      <p>See how these principles shape the product on the <a href="/platform.html#principles">Platform</a> page.</p>
+    </div>
+  </section>
+
+  <!-- 5. jamberi -->
+  <section class="section" id="jamberi">
+    <div class="container container--narrow">
+      <header class="section__header">
+        <h2 class="section__title">About jamberi</h2>
+      </header>
+      <p>TAROS is developed by jamberi.</p>
+    </div>
+  </section>
+
+  <!-- 6. CTA -->
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2 class="cta-block__title">Work with us</h2>
+        <p class="cta-block__text">We’re working with early design partners who deploy autonomous systems and AI/SI agents. If you need to prove what your systems did and why, let’s talk.</p>
+        <a href="/contact.html" class="cta-block__link">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
