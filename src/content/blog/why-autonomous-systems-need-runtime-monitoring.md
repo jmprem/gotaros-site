@@ -3,7 +3,7 @@ title: Why autonomous systems need runtime monitoring
 description: Testing before release tells you how an autonomous system behaved in the lab. Runtime monitoring tells you what it is doing now, and why.
 pubDate: 2026-09-30
 tags: [runtime monitoring, autonomous systems, oversight]
-draft: true
+draft: false
 ---
 
 AI/SI (Artificial Intelligence or Super Intelligence) systems are moving from answering questions to taking actions. A warehouse robot chooses a route through an aisle where people are working. A claims agent decides whether to release a payment. An agent chains together tools, data and other agents to finish a task nobody scripted step by step.
