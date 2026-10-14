@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" role="img" aria-labelledby="t d">
+  <title id="t">Can versus should in a robot fleet</title>
+  <desc id="d">The sandbox answers: may the agent reach the robot command API, and may it use the fleet credential. The watchdog answers: has the agent left its boundary, so quarantine it now. TAROS answers: should raise speed in zone B go ahead with people present, who approved the rule and in which line of defence, and which policy version decided.</desc>
+  <style>
+    text { font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif; fill: #231F20; }
+    .title { font-size: 22px; font-weight: 700; }
+    .pill { font-size: 16px; font-weight: 700; }
+    .body { font-size: 17px; fill: #555555; }
+  </style>
+
+  <!-- Sandbox -->
+  <rect x="10" y="10" width="580" height="176" rx="16" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="34" y="52" class="title">Sandbox</text>
+  <rect x="440" y="30" width="126" height="30" rx="15" fill="#F2F2F2"/>
+  <text x="503" y="51" class="pill" text-anchor="middle">Can it?</text>
+  <text x="34" y="96" class="body">• May the agent reach the robot command</text>
+  <text x="50" y="120" class="body">API on this port?</text>
+  <text x="34" y="154" class="body">• May it use the fleet credential there?</text>
+
+  <!-- Watchdog -->
+  <rect x="10" y="202" width="580" height="140" rx="16" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="34" y="244" class="title">Out-of-band watchdog</text>
+  <rect x="440" y="222" width="126" height="30" rx="15" fill="#FFF3B0"/>
+  <text x="503" y="243" class="pill" text-anchor="middle">Is it loose?</text>
+  <text x="34" y="288" class="body">• Has the agent left its boundary, so it must</text>
+  <text x="50" y="312" class="body">be quarantined now?</text>
+
+  <!-- TAROS -->
+  <rect x="10" y="358" width="580" height="292" rx="16" fill="#EAF6FC" stroke="#0092D5" stroke-width="3"/>
+  <text x="34" y="400" class="title">TAROS</text>
+  <rect x="440" y="378" width="126" height="30" rx="15" fill="#0092D5"/>
+  <text x="503" y="399" class="pill" text-anchor="middle" style="fill:#FFFFFF">Should it?</text>
+  <text x="34" y="444" class="body">• Should “raise speed in zone B” go ahead, with</text>
+  <text x="50" y="468" class="body">people present and this site’s risk appetite?</text>
+  <text x="34" y="506" class="body">• Who approved the rule, and in which line</text>
+  <text x="50" y="530" class="body">of defence?</text>
+  <text x="34" y="568" class="body">• Which policy version decided, and should</text>
+  <text x="50" y="592" class="body">a denial become an incident or a fleet freeze?</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-labelledby="t d">
+  <title id="t">The closed loop</title>
+  <desc id="d">Safety rules and approvals across three lines of defence become a signed, versioned policy that moves through draft, shadow and active. Each runtime event is monitored by TAROS, which returns one verdict: allow, escalate, deny or freeze, naming the policy version and hash that decided. The enforcement point applies the verdict and reports back. The decision and acknowledgement become evidence that feeds a safety case.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#231F20"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif; fill: #231F20; }
+    .step { font-size: 15px; font-weight: 800; letter-spacing: .08em; fill: #555555; }
+    .title { font-size: 21px; font-weight: 700; }
+    .body { font-size: 16px; fill: #555555; }
+    .pill { font-size: 15px; font-weight: 700; }
+  </style>
+
+  <!-- 1 Approved policy -->
+  <rect x="40" y="10" width="520" height="130" rx="16" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="64" y="42" class="step">1 · APPROVED RULES</text>
+  <text x="64" y="72" class="title">Signed, versioned policy</text>
+  <rect x="64" y="90" width="78" height="28" rx="14" fill="#F2F2F2"/>
+  <text x="103" y="110" class="pill" text-anchor="middle">Draft</text>
+  <text x="156" y="110" class="pill">→</text>
+  <rect x="180" y="90" width="92" height="28" rx="14" fill="#FFF3B0"/>
+  <text x="226" y="110" class="pill" text-anchor="middle">Shadow</text>
+  <text x="286" y="110" class="pill">→</text>
+  <rect x="310" y="90" width="84" height="28" rx="14" fill="#0092D5"/>
+  <text x="352" y="110" class="pill" text-anchor="middle" style="fill:#FFFFFF">Active</text>
+  <text x="410" y="110" class="body">3 lines approve</text>
+  <path d="M300 140 V176" stroke="#231F20" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- 2 Verdict -->
+  <rect x="40" y="184" width="520" height="190" rx="16" fill="#EAF6FC" stroke="#0092D5" stroke-width="3"/>
+  <text x="64" y="216" class="step">2 · TAROS MONITORS AND DECIDES</text>
+  <text x="64" y="246" class="title">One verdict per action</text>
+  <rect x="64" y="264" width="90" height="30" rx="15" fill="#FFFFFF" stroke="#0092D5" stroke-width="2"/>
+  <text x="109" y="285" class="pill" text-anchor="middle">Allow</text>
+  <rect x="164" y="264" width="112" height="30" rx="15" fill="#FFFFFF" stroke="#0092D5" stroke-width="2"/>
+  <text x="220" y="285" class="pill" text-anchor="middle">Escalate</text>
+  <rect x="286" y="264" width="84" height="30" rx="15" fill="#FFFFFF" stroke="#0092D5" stroke-width="2"/>
+  <text x="328" y="285" class="pill" text-anchor="middle">Deny</text>
+  <rect x="380" y="264" width="92" height="30" rx="15" fill="#FFFFFF" stroke="#0092D5" stroke-width="2"/>
+  <text x="426" y="285" class="pill" text-anchor="middle">Freeze</text>
+  <text x="64" y="328" class="body">Names the policy version and hash that decided.</text>
+  <text x="64" y="352" class="body">Most restrictive verdict wins.</text>
+  <path d="M300 374 V410" stroke="#231F20" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- 3 Enforcement -->
+  <rect x="40" y="418" width="520" height="150" rx="16" fill="#FFFFFF" stroke="#231F20" stroke-width="2.5"/>
+  <text x="64" y="450" class="step">3 · RUNTIME ENFORCES</text>
+  <text x="64" y="480" class="title">The enforcement point obeys</text>
+  <text x="64" y="512" class="body">Sandbox hook, fleet controller or release pipeline.</text>
+  <text x="64" y="538" class="body">It applies the verdict, then acknowledges it.</text>
+  <path d="M300 568 V604" stroke="#231F20" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- 4 Evidence -->
+  <rect x="40" y="612" width="520" height="130" rx="16" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="64" y="644" class="step">4 · EVIDENCE</text>
+  <text x="64" y="674" class="title">Tamper-evident record</text>
+  <text x="64" y="706" class="body">Decision, policy version, approvers, acknowledgement.</text>
+  <path d="M300 742 V778" stroke="#231F20" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- 5 Safety case -->
+  <rect x="40" y="786" width="520" height="104" rx="16" fill="#FFF3B0"/>
+  <text x="64" y="818" class="step">5 · ASSURANCE</text>
+  <text x="64" y="850" class="title">Safety case an assessor can review</text>
+</svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 820" role="img" aria-labelledby="t d">
   <title id="t">The runtime monitoring loop</title>
-  <desc id="d">1. Your autonomous system reports an event to TAROS. 2. TAROS checks it against signed, versioned policies. 3. TAROS returns a decision — allow, hold or block — and your system carries it out. 4. The decision is recorded with its reason.</desc>
+  <desc id="d">1. Your autonomous system reports an event to TAROS. 2. TAROS checks it against signed, versioned policies. 3. TAROS returns a decision — allow, escalate, deny or freeze — and your system carries it out. 4. The decision is recorded with its reason.</desc>
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0 0 L10 5 L0 10 z" fill="#231F20"/>
@@ -38,12 +38,14 @@
   <circle cx="54" cy="332" r="14" fill="#0092D5"/><text x="54" y="338" class="num" text-anchor="middle">2</text>
   <text x="78" y="339" style="font-size:19px;font-weight:600">Checked against signed, versioned policies</text>
 
-  <rect x="40" y="370" width="150" height="52" rx="26" fill="#0092D5"/>
-  <text x="115" y="403" class="chip" text-anchor="middle" style="fill:#FFFFFF">Allow</text>
-  <rect x="205" y="370" width="150" height="52" rx="26" fill="#FFD500"/>
-  <text x="280" y="403" class="chip" text-anchor="middle">Hold</text>
-  <rect x="370" y="370" width="150" height="52" rx="26" fill="#231F20"/>
-  <text x="445" y="403" class="chip" text-anchor="middle" style="fill:#FFFFFF">Block</text>
+  <rect x="40" y="370" width="111" height="52" rx="26" fill="#0092D5"/>
+  <text x="95.5" y="403" class="chip" text-anchor="middle" style="fill:#FFFFFF">Allow</text>
+  <rect x="163" y="370" width="111" height="52" rx="26" fill="#FFD500"/>
+  <text x="218.5" y="403" class="chip" text-anchor="middle">Escalate</text>
+  <rect x="286" y="370" width="111" height="52" rx="26" fill="#231F20"/>
+  <text x="341.5" y="403" class="chip" text-anchor="middle" style="fill:#FFFFFF">Deny</text>
+  <rect x="409" y="370" width="111" height="52" rx="26" fill="#D7263D"/>
+  <text x="464.5" y="403" class="chip" text-anchor="middle" style="fill:#FFFFFF">Freeze</text>
   <text x="280" y="464" class="body" text-anchor="middle">…always with the reason</text>
 
   <!-- Recorded (down) -->

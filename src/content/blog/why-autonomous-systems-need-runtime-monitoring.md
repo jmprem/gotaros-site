@@ -4,10 +4,10 @@ description: Testing before release tells you how an autonomous system behaved i
 pubDate: 2026-09-30
 tags: [runtime monitoring, autonomous systems, oversight]
 heroImage: /images/blog/why-autonomous-systems-need-runtime-monitoring/hero.svg
-heroAlt: Before release, a system is tested, reviewed and signed off once. In production, every event is monitored and allowed, held or blocked.
+heroAlt: Before release, a system is tested, reviewed and signed off once. In production, every event is monitored and allowed, escalated, denied or frozen.
 keyPoints:
   - Testing before release shows how a system behaved in the lab, not what it does in production.
-  - Runtime monitoring checks every event against signed policies, returns allow, hold or block, and records why.
+  - Runtime monitoring checks every event against signed policies, returns allow, escalate, deny or freeze, and records why.
   - It sits above your certified safety function and never replaces it.
 draft: false
 ---
@@ -29,13 +29,13 @@ That matters, but it only tells you how the system behaved in the conditions you
 Runtime monitoring means watching every autonomous system you connect, on every event, while it runs:
 
 <figure class="figure">
-  <img src="/images/blog/why-autonomous-systems-need-runtime-monitoring/monitoring-loop.svg" alt="The runtime monitoring loop: your autonomous system reports an event; TAROS checks it against signed, versioned policies; TAROS returns allow, hold or block with the reason, and your system carries it out; the decision is recorded." width="560" height="820" loading="lazy">
+  <img src="/images/blog/why-autonomous-systems-need-runtime-monitoring/monitoring-loop.svg" alt="The runtime monitoring loop: your autonomous system reports an event; TAROS checks it against signed, versioned policies; TAROS returns allow, escalate, deny or freeze with the reason, and your system carries it out; the decision is recorded." width="560" height="820" loading="lazy">
   <figcaption>The runtime monitoring loop. Every event gets a decision, and every decision gets a record.</figcaption>
 </figure>
 
 - **Every event is reported.** The system tells the monitoring layer what it is about to do, and in what conditions.
 - **Every event is checked against policy.** Signed, versioned policies define what the system may, must, or must not do.
-- **Every event gets a decision.** Allow, hold for a human, or block — with the reason.
+- **Every event gets a decision.** Allow, escalate to a human, deny, or freeze — with the reason.
 - **Every decision is recorded.** So the answer to “why did it do that?” comes from data, not memory.
 
 The system itself still carries out the decision. The monitoring layer states what is permitted; it doesn’t reach inside the machine.
@@ -51,10 +51,10 @@ If you run autonomous systems, you should be able to answer three questions at a
 > Why did unit 7 stop at 14:32? With runtime monitoring, the answer is already on record: the event it reported, the policy it matched, and the decision that was returned.
 
 <figure class="figure">
-  <div class="decision-record" role="img" aria-label="Illustrative decision record: at 14:32, unit 7 asked to enter Zone B; the policy on approved software per zone matched; the decision was Block because the unit runs software version 2.4.1, which is not approved for Zone B.">
+  <div class="decision-record" role="img" aria-label="Illustrative decision record: at 14:32, unit 7 asked to enter Zone B; the policy on approved software per zone matched; the decision was Deny because the unit runs software version 2.4.1, which is not approved for Zone B.">
     <div class="decision-record__header">
       <span class="decision-record__title">Decision record</span>
-      <span class="decision-record__decision">Blocked</span>
+      <span class="decision-record__decision">Denied</span>
     </div>
     <dl class="decision-record__fields">
       <div><dt>Time</dt><dd>14:32:07</dd></div>
@@ -95,4 +95,4 @@ A few principles separate real oversight from dashboards:
 
 TAROS — the Trusted Autonomous Runtime Oversight System — is built on these principles. It monitors every autonomous system you connect while it runs, applies signed and versioned policies, and records every decision with its reason. [See how the platform works](/platform.html).
 
-We’re working with early design partners deploying autonomous systems and AI/SI agents. If you need to prove what your systems did and why, [let’s talk](/contact.html).
+If you need to prove what your systems did and why, [let’s talk](/contact.html).

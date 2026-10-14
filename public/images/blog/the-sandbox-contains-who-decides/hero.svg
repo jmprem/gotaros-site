@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-labelledby="t d">
+  <title id="t">The sandbox contains. The watchdog watches. TAROS decides, and proves it.</title>
+  <desc id="d">Three layers working together around an AI/SI agent. The sandbox contains what the agent can reach. The watchdog watches it from outside the host. TAROS monitors each action, decides, and proves it.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2F9FD"/>
+      <stop offset="1" stop-color="#FFFDF2"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif; fill: #231F20; }
+    .verb { font-size: 22px; font-weight: 800; }
+    .body { font-size: 15px; fill: #555555; }
+    .agent { font-size: 16px; font-weight: 700; }
+  </style>
+  <rect width="600" height="340" rx="20" fill="url(#bg)"/>
+
+  <!-- Watchdog: outer dashed ring -->
+  <rect x="24" y="24" width="300" height="292" rx="18" fill="none" stroke="#555555" stroke-width="2.5" stroke-dasharray="8 7"/>
+  <!-- Sandbox -->
+  <rect x="58" y="70" width="232" height="200" rx="14" fill="#FFFFFF" stroke="#231F20" stroke-width="3"/>
+  <text x="174" y="100" class="body" text-anchor="middle">Sandbox boundary</text>
+  <!-- Agent -->
+  <rect x="104" y="138" width="140" height="64" rx="32" fill="#FFF3B0"/>
+  <text x="174" y="176" class="agent" text-anchor="middle">AI/SI agent</text>
+  <text x="174" y="300" class="body" text-anchor="middle">Out-of-band watchdog</text>
+
+  <!-- Connector to TAROS -->
+  <circle cx="290" cy="170" r="5" fill="#0092D5"/>
+  <path d="M290 170 H338 V258 H360" fill="none" stroke="#0092D5" stroke-width="3"/>
+
+  <!-- Statements -->
+  <text x="372" y="92" class="verb">Contains</text>
+  <text x="372" y="114" class="body">what the agent can reach</text>
+  <text x="372" y="162" class="verb">Watches</text>
+  <text x="372" y="184" class="body">from outside the host</text>
+  <rect x="360" y="212" width="216" height="92" rx="14" fill="#EAF6FC" stroke="#0092D5" stroke-width="3"/>
+  <text x="376" y="246" class="verb" style="fill:#0092D5">TAROS decides,</text>
+  <text x="376" y="274" class="verb" style="fill:#0092D5">and proves it</text>
+</svg>
